@@ -9,9 +9,6 @@ export default function Hero() {
         </h1>
 
         <div className="max-w-3xl mx-auto mb-8">
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-            Headline / Hero Section
-          </p>
           <p className="text-lg md:text-xl text-foreground leading-relaxed">
             We build tools and apps that help your business grow. Whether you're starting from scratch or looking to scale, we turn your ideas into working products that deliver value.
           </p>
