@@ -20,75 +20,63 @@ import {
 const services = [
   {
     icon: Brain,
-    title: "Generative AI Solutions",
-    description: "Build intelligent systems with custom AI models, chatbots, and automation that learn and adapt to your business needs.",
-    features: ["Custom AI Models", "Chatbot Development", "Process Automation", "Machine Learning"]
+    title: "AI & Automation",
+    description: "Leverage AI and automation to streamline your business, from custom models to smart assistants.",
+    features: [
+      "Custom AI Models",
+      "Chatbot Development",
+      "Process Automation"
+    ]
   },
   {
     icon: Code,
-    title: "Custom Software Development",
-    description: "End-to-end development of business software tailored to your unique processes and workflow requirements.",
-    features: ["Enterprise Software", "API Development", "Microservices", "Legacy Modernization"]
+    title: "Software & Web Development",
+    description: "End-to-end development of business software and web platforms tailored to your needs.",
+    features: [
+      "Enterprise Software",
+      "API Development",
+      "Web Portals"
+    ]
   },
   {
     icon: Smartphone,
-    title: "Mobile & Web Apps",
-    description: "Design and develop responsive applications that deliver exceptional user experiences across all devices.",
-    features: ["React Native Apps", "Progressive Web Apps", "Cross-platform", "Native iOS/Android"]
-  },
-  {
-    icon: Globe,
-    title: "Web Development",
-    description: "From simple landing pages to complex platforms, we create websites that perform and scale beautifully.",
-    features: ["E-commerce Platforms", "CMS Development", "Landing Pages", "Web Portals"]
-  },
-  {
-    icon: Zap,
-    title: "Automation & Integration",
-    description: "Streamline operations by automating repetitive tasks and connecting your existing tools seamlessly.",
-    features: ["Workflow Automation", "API Integrations", "Data Sync", "Business Logic"]
+    title: "Mobile & Cross-Platform Apps",
+    description: "Design and develop responsive mobile and web applications for all devices.",
+    features: [
+      "React Native Apps",
+      "Progressive Web Apps",
+      "Native iOS/Android"
+    ]
   },
   {
     icon: Database,
-    title: "Data Solutions",
-    description: "Transform raw data into actionable insights with robust data architecture and analytics platforms.",
-    features: ["Data Warehousing", "Business Intelligence", "Analytics Dashboards", "ETL Pipelines"]
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Infrastructure",
-    description: "Deploy and manage scalable cloud solutions that grow with your business and reduce operational overhead.",
-    features: ["AWS/Azure/GCP", "DevOps", "Auto-scaling", "Serverless"]
+    title: "Data & Cloud Solutions",
+    description: "Transform your data into insights and scale with robust cloud infrastructure.",
+    features: [
+      "Analytics Dashboards",
+      "Data Warehousing",
+      "Cloud Deployment"
+    ]
   },
   {
     icon: Shield,
-    title: "Cybersecurity",
-    description: "Protect your digital assets with comprehensive security solutions and compliance frameworks.",
-    features: ["Security Audits", "Compliance", "Penetration Testing", "Threat Monitoring"]
-  },
-  {
-    icon: Bot,
-    title: "AI-Powered Tools",
-    description: "Create intelligent tools that automate complex tasks and enhance productivity across your organization.",
-    features: ["AI Assistants", "Recommendation Engines", "Predictive Analytics", "Smart Workflows"]
+    title: "Security & DevOps",
+    description: "Protect your assets and ensure reliable delivery with modern security and DevOps practices.",
+    features: [
+      "Security Audits",
+      "CI/CD Pipelines",
+      "Performance Optimization"
+    ]
   },
   {
     icon: Palette,
-    title: "UI/UX Design",
-    description: "Craft beautiful, intuitive interfaces that users love and that drive business results.",
-    features: ["User Research", "Interface Design", "Prototyping", "Design Systems"]
-  },
-  {
-    icon: Rocket,
-    title: "Startup Acceleration",
-    description: "Fast-track your startup journey with MVP development, product strategy, and technical consulting.",
-    features: ["MVP Development", "Product Strategy", "Technical Consulting", "Growth Hacking"]
-  },
-  {
-    icon: Settings,
-    title: "DevOps & Deployment",
-    description: "Implement robust deployment pipelines and monitoring systems to ensure reliable software delivery.",
-    features: ["CI/CD Pipelines", "Monitoring", "Performance Optimization", "Containerization"]
+    title: "UI/UX & Startup Acceleration",
+    description: "Craft beautiful interfaces and accelerate your startup with expert design and MVP development.",
+    features: [
+      "Interface Design",
+      "Prototyping",
+      "MVP Development"
+    ]
   }
 ];
 
@@ -122,8 +110,9 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="shadow-none"
             >
-              <Card className="h-full glass-card border-red-500/10 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/10 group">
+              <Card className="h-full border-red-500/10 hover:border-red-500/20 transition-all duration-300 border-2 shadow-none group gap-2">
                 <CardHeader className="pb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="w-6 h-6 text-red-500" />
