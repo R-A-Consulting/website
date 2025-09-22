@@ -1,14 +1,16 @@
 "use client"
 import { motion } from "framer-motion";
 import { Video, Brain, Code, Smartphone, Cloud } from "lucide-react";
+import Image from "next/image";
 import HeroBackground from "@/components/ui/hero-background";
+import hero from "@/assets/hero.png";
 
 export default function Hero() {
   return (
     <section className="relative py-20 border-b border-red-200">
       <HeroBackground />
       <div className="max-w-7xl mx-auto px-4 pt-8 md:pt-15 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left order-2 lg:order-1 flex flex-col gap-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -50,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center lg:justify-start lg:items-start mt-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center lg:justify-start lg:items-start mt-4 lg:mt-10"
             >
               <a
                 href="https://calendly.com//30-min"
@@ -66,9 +68,13 @@ export default function Hero() {
           </div>
 
           {/* Graphics Section */}
-          <div className="order-1 lg:order-2 h-64 lg:h-96 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
-            <span className="text-gray-400 text-base lg:text-lg">Steep Logic</span>
-          </div>
+          <Image
+            src={hero}
+            width={600}
+            height={500}
+            alt="Steep Logic Hero Graphic"
+            className="relative order-1 lg:order-2 h-20 lg:h-120 bg-none overflow-visible flex items-center justify-center w-full object-contain"
+          />
         </div>
       </div>
     </section>
