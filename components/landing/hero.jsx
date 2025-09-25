@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative py-20 border-b border-red-200">
       <HeroBackground />
-      <div className="max-w-7xl mx-auto px-4 pt-8 md:pt-15 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 pt-8 md:pt-15 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-left order-2 lg:order-1 flex flex-col gap-4">
             <motion.div
@@ -52,13 +52,20 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-start items-start mt-4 lg:mt-8"
+              className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-8 bg-white md:w-max w-full rounded-[25px] p-1 shadow-[0_0_10px_rgba(0,0,0,0.1)] group"
             >
+              <span className="text-xs text-gray-600 flex items-center gap-2 px-4 md:pr-0 pb-2 md:pb-0 order-2 md:order-1">
+                <span className="relative flex items-center">
+                  <span className="absolute inline-flex h-2 w-2 rounded-full bg-green-500 opacity-75 animate-ping"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-600"></span>
+                </span>
+                Accepting Oct-Dec 2025 Projects
+              </span>
               <a
                 href="https://calendly.com//30-min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 px-3 bg-[#ff0708] text-white text-sm rounded-full font-medium transition-all flex items-center gap-2"
+                className="p-2 px-3 bg-[#ff0708] hover:bg-gradient-to-r from-[#ff0708] to-[#ff4757] order-1 md:order-2 text-white text-sm rounded-t-[23px] sm:rounded-b-[23px] font-medium transition-all flex items-center justify-center gap-2 w-full md:w-max hover:scale-110 hover:shadow-xl hover:rotate-2 group-hover:rotate-2 group-hover:shadow-xl group-hover:scale-110"
               >
                 {/* Google meet logo */}
                 <Video className="w-4 h-4" />
