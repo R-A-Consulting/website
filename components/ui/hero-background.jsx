@@ -53,12 +53,12 @@ export default function HeroBackground() {
         <defs>
           <motion.pattern
             id="grid"
-            width="10"
-            height="10"
+            width="4"
+            height="4"
             patternUnits="userSpaceOnUse"
             animate={{
-              x: isHovered ? mousePosition.x * 0.01 : 0,
-              y: isHovered ? mousePosition.y * 0.01 : 0
+              x: isHovered ? mousePosition.x * 0.02 : 0,
+              y: isHovered ? mousePosition.y * 0.02 : 0
             }}
             transition={{ type: "spring", stiffness: 50, damping: 20 }}
           >
@@ -102,8 +102,8 @@ export default function HeroBackground() {
           animate={{
             scale: isHovered ? shapeScale.get() * 1.2 : 1,
             opacity: isHovered ? 0.15 : 0.1,
-            x: isHovered ? mousePosition.x * 0.02 : 0,
-            y: isHovered ? mousePosition.y * 0.02 : 0
+            x: isHovered ? mousePosition.x * 0.04 : 0,
+            y: isHovered ? mousePosition.y * 0.04 : 0
           }}
           transition={{ duration: 2, delay: 1 }}
           className="absolute top-20 left-10 w-32 h-32 bg-red-500 rounded-full blur-xl"
@@ -113,10 +113,10 @@ export default function HeroBackground() {
         <motion.div
           initial={{ rotate: 0, opacity: 0 }}
           animate={{
-            rotate: isHovered ? 360 + (mousePosition.x * 0.1) : 360,
+            rotate: isHovered ? 360 + (mousePosition.x * 0.2) : 360,
             opacity: isHovered ? 0.12 : 0.08,
-            x: isHovered ? mousePosition.x * 0.01 : 0,
-            y: isHovered ? mousePosition.y * 0.01 : 0
+            x: isHovered ? mousePosition.x * 0.03 : 0,
+            y: isHovered ? mousePosition.y * 0.03 : 0
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-40 right-20"
@@ -145,7 +145,9 @@ export default function HeroBackground() {
           animate={{
             scale: isHovered ? shapeScale.get() : 1,
             opacity: isHovered ? 0.2 : 0.15,
-            rotate: isHovered ? mousePosition.x * 0.05 : 0
+            rotate: isHovered ? mousePosition.x * 0.1 : 0,
+            x: isHovered ? mousePosition.x * 0.02 : 0,
+            y: isHovered ? mousePosition.y * 0.02 : 0
           }}
           transition={{ duration: 1.5, delay: 0.5 }}
           className="absolute bottom-40 left-20"
@@ -172,9 +174,11 @@ export default function HeroBackground() {
         <motion.div
           initial={{ rotate: 0, opacity: 0 }}
           animate={{
-            rotate: isHovered ? 180 + (mousePosition.x * 0.05) : 180,
+            rotate: isHovered ? 180 + (mousePosition.x * 0.15) : 180,
             opacity: isHovered ? 0.15 : 0.1,
-            scale: isHovered ? 1.1 : 1
+            scale: isHovered ? 1.1 : 1,
+            x: isHovered ? mousePosition.x * 0.02 : 0,
+            y: isHovered ? mousePosition.y * 0.02 : 0
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/2 right-10"
@@ -203,7 +207,10 @@ export default function HeroBackground() {
           initial={{ opacity: 0 }}
           animate={{
             opacity: isHovered ? 0.08 : 0.05,
-            scale: isHovered ? 1.2 : 1
+            scale: isHovered ? 1.2 : 1,
+            rotate: isHovered ? mousePosition.x * 0.15 : 0,
+            x: isHovered ? mousePosition.x * 0.01 : 0,
+            y: isHovered ? mousePosition.y * 0.01 : 0
           }}
           transition={{ duration: 1, delay: 2 }}
           className="absolute bottom-20 right-40"
@@ -228,8 +235,8 @@ export default function HeroBackground() {
           animate={{
             scale: isHovered ? shapeScale.get() : 1,
             opacity: isHovered ? 0.12 : 0.08,
-            x: isHovered ? mousePosition.x * 0.01 : 0,
-            y: isHovered ? mousePosition.y * 0.01 : 0
+            x: isHovered ? mousePosition.x * 0.03 : 0,
+            y: isHovered ? mousePosition.y * 0.03 : 0
           }}
           transition={{ duration: 1, delay: 1.5 }}
           className="absolute top-60 left-1/3 w-16 h-16 bg-red-400 rounded-full blur-lg"
@@ -240,12 +247,96 @@ export default function HeroBackground() {
           animate={{
             scale: isHovered ? shapeScale.get() * 1.1 : 1,
             opacity: isHovered ? 0.1 : 0.06,
-            x: isHovered ? -mousePosition.x * 0.01 : 0,
-            y: isHovered ? -mousePosition.y * 0.01 : 0
+            x: isHovered ? -mousePosition.x * 0.03 : 0,
+            y: isHovered ? -mousePosition.y * 0.03 : 0
           }}
           transition={{ duration: 1, delay: 2.5 }}
           className="absolute bottom-60 right-1/3 w-20 h-20 bg-red-300 rounded-full blur-lg"
         />
+
+        {/* Additional Floating Elements */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{
+            scale: isHovered ? shapeScale.get() * 0.8 : 1,
+            opacity: isHovered ? 0.12 : 0.06,
+            x: isHovered ? mousePosition.x * 0.025 : 0,
+            y: isHovered ? mousePosition.y * 0.025 : 0
+          }}
+          transition={{ duration: 2, delay: 3 }}
+          className="absolute top-80 right-1/4 w-12 h-12 bg-red-600 rounded-full blur-md"
+        />
+
+        <motion.div
+          initial={{ rotate: 0, opacity: 0 }}
+          animate={{
+            rotate: isHovered ? 360 + (mousePosition.y * 0.08) : 360,
+            opacity: isHovered ? 0.1 : 0.05,
+            x: isHovered ? mousePosition.x * 0.015 : 0,
+            y: isHovered ? mousePosition.y * 0.015 : 0
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-80 left-1/4"
+        >
+          <motion.svg
+            width="45"
+            height="45"
+            viewBox="0 0 45 45"
+            className="text-red-500"
+          >
+            <rect x="20" y="5" width="5" height="35" fill="currentColor" opacity="0.4" />
+            <rect x="5" y="20" width="35" height="5" fill="currentColor" opacity="0.4" />
+          </motion.svg>
+        </motion.div>
+
+        {/* Pulsing Dots Animation */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: isHovered ? [0.06, 0.12, 0.06] : [0.03, 0.08, 0.03]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute top-1/3 right-1/3"
+        >
+          <motion.div
+            className="w-2 h-2 bg-red-500 rounded-full"
+            animate={{
+              scale: isHovered ? [1, 1.5, 1] : [1, 1.2, 1],
+              x: isHovered ? mousePosition.x * 0.005 : 0,
+              y: isHovered ? mousePosition.y * 0.005 : 0
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: isHovered ? [0.04, 0.1, 0.04] : [0.02, 0.06, 0.02]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+          className="absolute bottom-1/4 left-1/2"
+        >
+          <motion.div
+            className="w-3 h-3 bg-red-400 rounded-full"
+            animate={{
+              scale: isHovered ? [1, 2, 1] : [1, 1.5, 1],
+              x: isHovered ? -mousePosition.x * 0.003 : 0,
+              y: isHovered ? -mousePosition.y * 0.003 : 0
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+        </motion.div>
 
         {/* Interactive Gradient Overlay */}
         <motion.div
@@ -264,8 +355,8 @@ export default function HeroBackground() {
           animate={{
             scale: isHovered ? shapeScale.get() * 2 : 1,
             opacity: isHovered ? 0.05 : 0.03,
-            x: isHovered ? mousePosition.x * 0.1 : 0,
-            y: isHovered ? mousePosition.y * 0.1 : 0
+            x: isHovered ? mousePosition.x * 0.15 : 0,
+            y: isHovered ? mousePosition.y * 0.15 : 0
           }}
           transition={{ duration: 3, delay: 0.5 }}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500 rounded-full blur-3xl"
@@ -317,8 +408,8 @@ export default function HeroBackground() {
             stroke="url(#verticalLine)"
             strokeWidth="1"
             animate={{
-              x1: isHovered ? 200 + mousePosition.x * 0.01 : 200,
-              x2: isHovered ? 200 + mousePosition.x * 0.01 : 200
+              x1: isHovered ? 200 + mousePosition.x * 0.02 : 200,
+              x2: isHovered ? 200 + mousePosition.x * 0.02 : 200
             }}
             transition={{ duration: 0.5 }}
           />
@@ -330,8 +421,8 @@ export default function HeroBackground() {
             stroke="url(#verticalLine)"
             strokeWidth="1"
             animate={{
-              x1: isHovered ? 400 + mousePosition.x * 0.005 : 400,
-              x2: isHovered ? 400 + mousePosition.x * 0.005 : 400
+              x1: isHovered ? 400 + mousePosition.x * 0.015 : 400,
+              x2: isHovered ? 400 + mousePosition.x * 0.015 : 400
             }}
             transition={{ duration: 0.5 }}
           />
@@ -343,8 +434,8 @@ export default function HeroBackground() {
             stroke="url(#verticalLine)"
             strokeWidth="1"
             animate={{
-              x1: isHovered ? 600 - mousePosition.x * 0.005 : 600,
-              x2: isHovered ? 600 - mousePosition.x * 0.005 : 600
+              x1: isHovered ? 600 - mousePosition.x * 0.015 : 600,
+              x2: isHovered ? 600 - mousePosition.x * 0.015 : 600
             }}
             transition={{ duration: 0.5 }}
           />
@@ -356,8 +447,8 @@ export default function HeroBackground() {
             stroke="url(#verticalLine)"
             strokeWidth="1"
             animate={{
-              x1: isHovered ? 800 - mousePosition.x * 0.01 : 800,
-              x2: isHovered ? 800 - mousePosition.x * 0.01 : 800
+              x1: isHovered ? 800 - mousePosition.x * 0.02 : 800,
+              x2: isHovered ? 800 - mousePosition.x * 0.02 : 800
             }}
             transition={{ duration: 0.5 }}
           />
