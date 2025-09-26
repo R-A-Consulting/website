@@ -35,7 +35,7 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-2xl md:text-4xl font-semibold text-gray-900 leading-tight"
             >
-              Integrate AI across workflows to streamline operations and scale revenue.
+              We help businesses use AI and modern software to grow faster & smarter.
             </motion.h1>
 
             <motion.p
