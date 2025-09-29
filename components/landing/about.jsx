@@ -67,7 +67,10 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -87,10 +90,21 @@ export default function About() {
               key={benefit.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              whileHover={{
+                y: -8,
+                transition: {
+                  duration: 0.3,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
+              }}
               viewport={{ once: true }}
             >
-              <Card className="h-full glass-card border-red-500/10 hover:border-red-500/20 transition-all duration-300 group">
+              <Card className="h-full glass-card border-red-500/10 hover:border-red-500/20 transition-all duration-300 group hover:shadow-lg hover:shadow-red-500/10">
                 <CardContent className="p-6">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <benefit.icon className="w-7 h-7 text-red-500" />
@@ -110,7 +124,10 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="text-center"
         >
@@ -121,9 +138,17 @@ export default function About() {
                 key={feature}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.05,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
                 viewport={{ once: true }}
-                className="flex items-center gap-3 p-3 rounded-lg bg-white/50 dark:bg-gray-900/50"
+                className="flex items-center gap-3 p-3 rounded-lg bg-white/50 dark:bg-gray-900/50 hover:bg-white/70 dark:hover:bg-gray-900/70 transition-colors duration-200"
               >
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                 <span className="text-sm text-foreground">{feature}</span>

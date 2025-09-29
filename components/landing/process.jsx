@@ -93,7 +93,10 @@ export default function Process() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -113,7 +116,14 @@ export default function Process() {
               key={step.step}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              whileHover={{
+                x: 4,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
               viewport={{ once: true }}
               className="relative"
             >
@@ -171,7 +181,10 @@ export default function Process() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="mb-16"
         >
@@ -182,7 +195,15 @@ export default function Process() {
                 key={principle.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
                 viewport={{ once: true }}
               >
                 <Card className="h-full glass-card border-red-500/10 text-center">
@@ -205,7 +226,10 @@ export default function Process() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="text-center"
         >

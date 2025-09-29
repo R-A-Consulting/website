@@ -19,43 +19,41 @@ import {
 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import ai from "@/assets/services/ai.png";
-// import software from "@/assets/services/software.png";
-// import mobile from "@/assets/services/mobile.png";
-// import data from "@/assets/services/data.png";
-// import security from "@/assets/services/security.png";
-// import uiux from "@/assets/services/uiux.png";
-
+import product from "@/assets/services/product.png";
+import webapp from "@/assets/services/web-app.png";
+import cloud from "@/assets/services/cloud.png";
+import automation from "@/assets/services/automation.png";
 
 const services = [
   {
     img: ai,
-    title: "AI & Automation",
-    description: "Leverage AI and automation to streamline your business, from custom models to smart assistants.",
+    title: "AI for Business",
+    description: "Assistants, chatbots, and smart tools that save time and improve decisions.",
+  },
+  {
+    img: product,
+    title: "Product Design",
+    description: "Product strategy, UX/UI, and prototypes that turn ideas into working products.",
+  },
+  {
+    img: webapp,
+    title: "Web & App Development",
+    description: "Fast, secure websites and mobile apps from idea to launch.",
+  },
+  {
+    img: cloud,
+    title: "Cloud & DevOps",
+    description: "Reliable, scalable, and cost-efficient setup, monitoring, and management.",
+  },
+  {
+    img: automation,
+    title: "Automation & Integrations",
+    description: "Connect systems and automate routine tasks to cut manual work.",
   },
   {
     img: null,
-    title: "Software & Web Development",
-    description: "End-to-end development of business software and web platforms tailored to your needs.",
-  },
-  {
-    img: null,
-    title: "Mobile & Cross-Platform Apps",
-    description: "Design and develop responsive mobile and web applications for all devices.",
-  },
-  {
-    img: null,
-    title: "Data & Cloud Solutions",
-    description: "Transform your data into insights and scale with robust cloud infrastructure.",
-  },
-  {
-    img: null,
-    title: "Security & DevOps",
-    description: "Protect your assets and ensure reliable delivery with modern security and DevOps practices.",
-  },
-  {
-    img: null,
-    title: "UI/UX & Startup Acceleration",
-    description: "Craft beautiful interfaces and accelerate your startup with expert design and MVP development.",
+    title: "Custom Solutions",
+    description: "Tailor-made projects built around your goals, processes, and budget.",
   }
 ];
 
@@ -102,7 +100,7 @@ function AnimatedText({ text, className }) {
         key={wordIndex}
         className="inline-block mr-1"
         style={{
-          color: isRed ? '#ff0708' : '#ff070810',
+          color: isRed ? '#1e1e1e' : '#ff070810',
           transition: shouldTransition ? 'color 0.3s ease-out' : 'none'
         }}
       >
@@ -117,7 +115,10 @@ function AnimatedText({ text, className }) {
       className={className}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
     >
       {animatedWords}
     </motion.p>
@@ -126,51 +127,50 @@ function AnimatedText({ text, className }) {
 
 export default function Services() {
   return (
-    <section className="py-20 px-4 bg-slate-50 w-full">
+    <section className="py-20 px-4 bg-white w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="text-start mb-10"
         >
-          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
-            What We Do for Your Business
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/10 bg-clip-text text-transparent">
+            what we do for your business
             <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
           <AnimatedText
             text="We design and build reliable websites, apps, automations, and custom solutions to save you time and boost results."
-            className="text-2xl md:text-4xl text-slate-100 max-w-5xl leading-[1.2] md:leading-[1.2] font-semibold"
+            className="text-2xl md:text-4xl text-slate-900 max-w-5xl leading-[1.2] md:leading-[1.2] font-semibold"
           />
         </motion.div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-[12px] p-1.5 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-[12px] p-1.5 ">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="shadow-none"
             >
-              <Card className="h-full border-none shadow-none group gap-2 bg-slate-50 rounded-[12px] p-1 overflow-hidden">
+              <Card className="h-full border border-[#1E1E1E]/10 shadow-none group gap-2 bg-white rounded-[12px] p-2 overflow-hidden">
                 <CardHeader className="p-0">
-                  <div className="w-full aspect-2/1 bg-slate-100/50 rounded-[6px]">
+                  <div className="w-full aspect-2/1 bg-slate-100/50 rounded-[6px] overflow-hidden">
                     {service.img && <Image src={service.img} alt={service.title} width={1000} height={1000} className="w-full h-full object-cover" />}
                   </div>
-                  <div className="flex flex-col gap-2 p-2">
-                  <CardTitle className="text-xl font-semibold px-2">{service.title}</CardTitle>
+                  <div className="flex flex-col gap-1 py-2">
+                  <CardTitle className="text-xl md:text-2xl font-semibold px-2">{service.title}</CardTitle>
                     <CardDescription className="text-muted-foreground leading-relaxed px-2">
                       {service.description}
                     </CardDescription>
                   </div>
                 </CardHeader>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -178,7 +178,11 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           viewport={{ once: true }}
           className="text-center mt-16"
         >

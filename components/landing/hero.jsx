@@ -15,7 +15,11 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
               className="flex flex-wrap justify-start items-center gap-2"
             >
               {[{'icon': <Brain className="w-3 h-3" />, 'title': 'Gen AI'}, {'icon': <Code className="w-3 h-3" />, 'title': 'Web'}, {'icon': <Smartphone className="w-3 h-3" />, 'title': 'Android / iOS'}, {'icon': <Cloud className="w-3 h-3" />, 'title': 'Cloud'}].map((tech, index) => (
@@ -32,7 +36,10 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{
+                duration: 0.9,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
               className="text-2xl md:text-4xl font-semibold text-gray-900 leading-tight"
             >
               We help businesses use AI and modern software to grow faster & smarter.
@@ -41,7 +48,11 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
               className="text-md md:text-lg text-gray-600 max-w-2xl leading-[1.2] md:leading-[1.5]"
             >
               From AI automation and analytics to robust & modern web, mobile, and cloud platforms, we design and ship the tools that streamline operations, accelerate growth, and help your business win.
@@ -51,7 +62,11 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.6,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
               className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-8 bg-white md:w-max w-full rounded-[25px] p-1 shadow-[0_0_10px_rgba(0,0,0,0.1)] group"
             >
               <span className="text-xs text-gray-600 flex items-center gap-2 px-4 md:pr-0 pb-2 md:pb-0 order-2 md:order-1">

@@ -27,10 +27,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out max-w-[90%]  md:max-w-7xl mx-auto px-0 lg:px-0 rounded-full
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out max-w-[90%]  md:max-w-7xl mx-auto px-0 lg:px-0 rounded-full
         outline-0 outline-offset-0 outline-gray-100 py-1
-        ${showNavbar ? 'translate-y-0 mt-5' : '-translate-y-[103%]'} 
-        ${scrollY > scrollThreshold ? 'bg-white/80 backdrop-blur-[10px] outline-2 shadow-[0_0_10px_-6px_rgba(100,116,139,0.4),0_0_16px_-8px_rgba(255,7,8,0.18)]' : 'bg-transparent outline-none shadow-none'}
+        ${showNavbar ? 'translate-y-0 mt-5' : '-translate-y-[103%]'}
+        ${scrollY > scrollThreshold ? 'bg-white/85 backdrop-blur-[12px] outline-2 shadow-[0_0_10px_-6px_rgba(100,116,139,0.4),0_0_16px_-8px_rgba(255,7,8,0.18)]' : 'bg-transparent outline-none shadow-none'}
       `}
     >
       <div className="flex items-center justify-between">

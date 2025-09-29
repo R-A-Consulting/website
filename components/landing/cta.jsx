@@ -33,7 +33,10 @@ export default function CTA() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
             viewport={{ once: true }}
           >
             <div className="mb-6">
@@ -57,7 +60,15 @@ export default function CTA() {
                   key={feature}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  whileHover={{
+                    x: 4,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
                   viewport={{ once: true }}
                   className="flex items-center gap-3"
                 >
@@ -80,7 +91,15 @@ export default function CTA() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            whileHover={{
+              y: -4,
+              transition: { duration: 0.3, ease: "easeOut" }
+            }}
             viewport={{ once: true }}
           >
             <div className="glass-card border-red-500/20 p-8 md:p-12">
