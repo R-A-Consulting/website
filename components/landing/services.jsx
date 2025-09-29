@@ -15,7 +15,9 @@ import {
   Palette,
   Rocket,
   Settings,
-  Layers
+  Layers,
+  Video,
+  Handshake
 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import ai from "@/assets/services/ai.png";
@@ -23,6 +25,7 @@ import product from "@/assets/services/product.png";
 import webapp from "@/assets/services/web-app.png";
 import cloud from "@/assets/services/cloud.png";
 import automation from "@/assets/services/automation.png";
+import custom from "@/assets/services/custom.png";
 
 const services = [
   {
@@ -51,7 +54,7 @@ const services = [
     description: "Connect systems and automate routine tasks to cut manual work.",
   },
   {
-    img: null,
+    img: custom,
     title: "Custom Solutions",
     description: "Tailor-made projects built around your goals, processes, and budget.",
   }
@@ -174,25 +177,28 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
-            delay: 0.4,
+            delay: 0.6,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
+          className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-8 bg-white md:w-max w-full rounded-[25px] p-1 shadow-none border border-red-500/20 group mx-auto"
         >
-          <p className="text-lg text-muted-foreground mb-6">
-            Don't see exactly what you need? We love building custom solutions.
-          </p>
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-red-500/10 border border-red-500/20 rounded-full">
-            <Layers className="w-5 h-5 text-red-500" />
-            <span className="text-foreground font-medium">Custom Development Available</span>
-          </div>
+          <span className="text-xs text-gray-600 flex items-center gap-2 px-4 md:pr-0 pb-2 md:pb-0 order-2 md:order-1">
+            <Handshake className="w-4 h-4" />
+            Let's discuss your project
+          </span>
+          <a
+            href="https://calendly.com//30-min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 px-3 bg-[#ff0708] hover:bg-gradient-to-r from-[#ff0708] to-[#ff4757] order-1 md:order-2 text-white text-sm rounded-t-[23px] sm:rounded-b-[23px] font-medium transition-all flex items-center justify-center gap-2 w-full md:w-max hover:scale-110 hover:shadow-xl hover:rotate-2 group-hover:rotate-2 group-hover:shadow-xl group-hover:scale-110"
+          >
+            Schedule Call
+          </a>
         </motion.div>
       </div>
     </section>
