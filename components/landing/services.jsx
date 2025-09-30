@@ -130,7 +130,7 @@ function AnimatedText({ text, className }) {
 
 export default function Services() {
   return (
-    <section className="py-20 px-4 bg-white w-full">
+    <section className="py-20 px-4 bg-slate-50/50 w-full relative">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -185,9 +185,9 @@ export default function Services() {
             delay: 0.6,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
-          className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-8 bg-white md:w-max w-full rounded-[25px] p-1 shadow-none border border-red-500/20 group mx-auto"
+          className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-10 bg-white md:w-max w-full rounded-[25px] p-1 shadow-none border border-red-500/20 group mx-auto"
         >
-          <span className="text-xs text-gray-600 flex items-center gap-2 px-4 md:pr-0 pb-2 md:pb-0 order-2 md:order-1">
+          <span className="text-sm md:text-base text-gray-600 flex items-center gap-2 px-4 md:pr-0 pb-2 md:pb-0 order-2 md:order-1">
             <Handshake className="w-4 h-4" />
             Let's discuss your project
           </span>
@@ -201,6 +201,14 @@ export default function Services() {
           </a>
         </motion.div>
       </div>
+      {/* Gradient border at the bottom */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 right-0 bottom-0 h-[1px] w-full"
+        style={{
+          background: "linear-gradient(90deg, #ff070820 0%, #FF070880 50%, #ff070820 100%)"
+        }}
+      />
     </section>
   );
 }

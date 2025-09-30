@@ -1,49 +1,40 @@
 "use client"
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import {
-  Target,
-  Zap,
-  Brain,
-  Globe,
-  Users,
-  Award,
-  Clock,
-  Shield,
-  TrendingUp,
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
+import {
   CheckCircle
 } from "lucide-react";
+import Image from "next/image";
+import experience from "@/assets/about/experience.png";
+import pace from "@/assets/about/pace.png";
+import clear from "@/assets/about/clear.png";
+import support from "@/assets/about/support.png";
 
 const benefits = [
   {
-    icon: Target,
-    title: "Results-Driven Approach",
-    description: "Every line of code we write is designed to move the needle for your business. We focus on outcomes, not just deliverables."
+    img: experience,
+    title: "Proven Experience",
+    description: "50+ successful projects; we’ve built for startups and SMEs across India and abroad."
   },
   {
-    icon: Zap,
-    title: "Lightning-Fast Delivery",
-    description: "Our agile methodology means you see working prototypes within weeks, not months. Iterate quickly and launch faster."
+    img: pace,
+    title: "Lightning‑Fast Pace",
+    description: "Working prototype in weeks; weekly demos so you see progress quickly."
   },
   {
-    icon: Brain,
-    title: "Technical Excellence",
-    description: "From cutting-edge AI to battle-tested architectures, we combine innovation with proven engineering practices."
+    img: clear,
+    title: "Clear Results",
+    description: "We focus on outcomes—more sales, lower costs, faster operations."
   },
   {
-    icon: Globe,
-    title: "Global Perspective",
-    description: "Based in India, working with clients worldwide. We understand diverse markets and scale solutions accordingly."
-  },
-  {
-    icon: Users,
-    title: "Dedicated Partnership",
-    description: "You're not just a client—you're a partner. We invest in your success and provide ongoing support and optimization."
-  },
-  {
-    icon: Award,
-    title: "Proven Track Record",
-    description: "50+ successful projects across startups to enterprises. Our work speaks louder than promises."
+    img: support,
+    title: "Strong Support",
+    description: "Production‑ready delivery, documentation, and ongoing help after launch."
   }
 ];
 
@@ -61,9 +52,8 @@ const features = [
 
 export default function About() {
   return (
-    <section className="py-24 px-4 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
+    <section className="py-20 px-4 bg-white w-full">
+      <div className="max-w-7xl mx-auto space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,19 +62,20 @@ export default function About() {
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-start md:text-center space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Why Choose
-            <span className="text-gradient block">Steep Logic</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            We're not just developers—we're your strategic technology partner. We understand that great software is about solving real business problems, not just writing code.
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/80 bg-clip-text text-transparent w-max mx-auto">
+            what's steep logic all about
+            <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
+          <h2
+            className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl"
+          >
+            Engineering. Strategy. Delivery.
+          </h2>
         </motion.div>
 
-        {/* Benefits grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 rounded-[12px]">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
@@ -95,44 +86,51 @@ export default function About() {
                 delay: index * 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              whileHover={{
-                y: -8,
-                transition: {
-                  duration: 0.3,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
-              }}
               viewport={{ once: true }}
             >
-              <Card className="h-full glass-card border-red-500/10 hover:border-red-500/20 transition-all duration-300 group hover:shadow-lg hover:shadow-red-500/10">
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <benefit.icon className="w-7 h-7 text-red-500" />
+              <Card className="h-full border border-[#1E1E1E]/10 shadow-none bg-white rounded-[12px] overflow-hidden transition-all duration-300 group p-0">
+                <CardHeader className="p-1 flex flex-col gap-4">
+                  <Image src={benefit.img} alt={benefit.title} width={1000} height={1000} className=" text-[#ff0708]" />
+                  <div className="flex flex-col gap-2">
+                    <CardTitle className="text-xl font-semibold text-slate-900">
+                      {benefit.title}
+                    </CardTitle>
+                    <CardDescription className="text-sm leading-relaxed text-muted-foreground">
+                      {benefit.description}
+                    </CardDescription>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </CardContent>
+                </CardHeader>
               </Card>
             </motion.div>
           ))}
         </div>
 
-
-        {/* Features list */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
+            delay: 0.4,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
           viewport={{ once: true }}
-          className="text-center"
+          className="rounded-[24px] border border-[#ff0708]/15 bg-gradient-to-br from-white via-white to-[#ff0708]/5 dark:from-gray-950 dark:via-gray-950 dark:to-[#ff0708]/10 p-8 space-y-8"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-8">What's Included</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div className="space-y-2">
+              <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">
+                What's Included In Every Engagement
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
+                Everything we ship is production-ready, documented, and supported so your team can own it from day one.
+              </p>
+            </div>
+            <span className="text-xs uppercase tracking-[0.2em] text-[#ff0708] font-semibold">
+              delivery without drama
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {features.map((feature, index) => (
               <motion.div
                 key={feature}
@@ -143,15 +141,13 @@ export default function About() {
                   delay: index * 0.05,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
                 viewport={{ once: true }}
-                className="flex items-center gap-3 p-3 rounded-lg bg-white/50 dark:bg-gray-900/50 hover:bg-white/70 dark:hover:bg-gray-900/70 transition-colors duration-200"
+                className="flex items-center gap-3 p-3 rounded-[10px] bg-white/80 dark:bg-gray-950/80 border border-white/40 dark:border-gray-800/60 shadow-sm"
               >
                 <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-sm text-foreground">{feature}</span>
+                <span className="text-sm text-slate-900 dark:text-slate-100">
+                  {feature}
+                </span>
               </motion.div>
             ))}
           </div>
