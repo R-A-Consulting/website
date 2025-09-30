@@ -7,6 +7,7 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import {
+  CheckCheck,
   CheckCircle
 } from "lucide-react";
 import Image from "next/image";
@@ -14,46 +15,56 @@ import experience from "@/assets/about/experience.png";
 import pace from "@/assets/about/pace.png";
 import clear from "@/assets/about/clear.png";
 import support from "@/assets/about/support.png";
+import Marquee from "react-fast-marquee";
 
 const benefits = [
   {
     img: experience,
-    title: "Proven Experience",
-    description: "50+ successful projects; we’ve built for startups and SMEs across India and abroad."
+    title: "10+ Years Building Great Products",
+    description: "With over a decade of experience, we’ve successfully delivered 50+ projects for startups and small businesses in India and abroad, helping them grow and innovate with confidence."
   },
   {
     img: pace,
-    title: "Lightning‑Fast Pace",
-    description: "Working prototype in weeks; weekly demos so you see progress quickly."
+    title: "Fast Prototypes and Weekly Updates",
+    description: "We deliver a working prototype within weeks and provide weekly progress updates, so you’re always in the loop and can give feedback early and often for the best results."
   },
   {
     img: clear,
-    title: "Clear Results",
-    description: "We focus on outcomes—more sales, lower costs, faster operations."
+    title: "We Focus on Real Results",
+    description: "Our goal is to help you increase sales, reduce costs, and streamline your operations. We measure success by the tangible improvements we bring to your business outcomes."
   },
   {
     img: support,
-    title: "Strong Support",
-    description: "Production‑ready delivery, documentation, and ongoing help after launch."
+    title: "Support Before and After Launch",
+    description: "We provide ready-to-use solutions, clear documentation, and ongoing support after launch, ensuring you’re never left alone and your product continues to succeed post-launch."
   }
 ];
 
-
 const features = [
-  "Agile development with weekly demos",
-  "Transparent pricing and timelines",
-  "Dedicated project manager for every client",
-  "Code ownership and documentation",
-  "Post-launch support and maintenance",
-  "Scalable architecture from day one",
-  "Security-first development approach",
-  "Performance optimization included"
+  "Agile development",
+  "Transparent pricing",
+  "Project manager",
+  "Code ownership",
+  "Post-launch support",
+  "Scalable architecture",
+  "Security-first",
+  "Performance optimization",
+  "Weekly updates",
+  "Rapid prototyping",
+  "Clear documentation",
+  "Continuous delivery",
+  "User-focused design",
+  "Cloud ready",
+  "Modern tech stack",
+  "Dedicated support"
 ];
+
+const headingWords = ["Engineering.", "Strategy.", "Delivery."];
 
 export default function About() {
   return (
-    <section className="py-20 px-4 bg-white w-full">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section className="bg-white w-full relative">
+      <div className="max-w-6xl mx-auto space-y-16 border-x border-dashed border-red-500/20 pt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,20 +73,33 @@ export default function About() {
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
           viewport={{ once: true }}
-          className="text-start md:text-center space-y-6"
+          className="text-start md:text-center space-y-6 border-b border-dashed border-red-500/20 pb-10"
         >
           <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/80 bg-clip-text text-transparent w-max mx-auto">
             what's steep logic all about
             <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
-          <h2
-            className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl"
-          >
-            Engineering. Strategy. Delivery.
+          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl">
+            {headingWords.map((word, index) => (
+              <motion.span
+                key={`${word}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true }}
+                className="inline-block"
+              >
+                {index > 0 ? ` ${word}` : word}&nbsp;
+              </motion.span>
+            ))}
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 rounded-[12px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-[12px] items-center justify-center md:pl-10">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
@@ -88,14 +112,14 @@ export default function About() {
               }}
               viewport={{ once: true }}
             >
-              <Card className="h-full border border-[#1E1E1E]/10 shadow-none bg-white rounded-[12px] overflow-hidden transition-all duration-300 group p-0">
+              <Card className="h-full border-none shadow-none bg-none rounded-[12px] overflow-hidden transition-all duration-300 group p-10">
                 <CardHeader className="p-1 flex flex-col gap-4">
-                  <Image src={benefit.img} alt={benefit.title} width={1000} height={1000} className=" text-[#ff0708]" />
+                  <Image src={benefit.img} alt={benefit.title} width={150} height={150} className=" text-[#ff0708]" />
                   <div className="flex flex-col gap-2">
                     <CardTitle className="text-xl font-semibold text-slate-900">
                       {benefit.title}
                     </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed text-muted-foreground">
+                    <CardDescription className="text-xs max-w-100 leading-relaxed text-muted-foreground">
                       {benefit.description}
                     </CardDescription>
                   </div>
@@ -114,45 +138,40 @@ export default function About() {
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
           viewport={{ once: true }}
-          className="rounded-[24px] border border-[#ff0708]/15 bg-gradient-to-br from-white via-white to-[#ff0708]/5 dark:from-gray-950 dark:via-gray-950 dark:to-[#ff0708]/10 p-8 space-y-8"
+          className="rounded-none border-t border-dashed border-[#ff0708]/30 bg-gradient-to-r from-white via-[#ff070805] to-white dark:from-gray-950 dark:via-gray-950 dark:to-[#ff0708]/10 p-8 space-y-8 px-0 flex flex-col items-center justify-center gap-7 pb-10"
         >
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <div className="space-y-2">
-              <h3 className="text-2xl md:text-3xl font-semibold text-slate-900">
-                What's Included In Every Engagement
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
-                Everything we ship is production-ready, documented, and supported so your team can own it from day one.
-              </p>
-            </div>
-            <span className="text-xs uppercase tracking-[0.2em] text-[#ff0708] font-semibold">
-              delivery without drama
-            </span>
-          </div>
+          <h3 className="text-sm md:text-base font-tektur font-medium text-slate-900 w-max mx-auto m-0">
+            everything's included, without any drama
+            <span className="h-[3px] w-[9px] bg-slate-900 inline-block ml-1" ></span>
+          </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {features.map((feature, index) => (
-              <motion.div
+          <Marquee
+            speed={70}
+            gradient={true}
+            className="gap-[5px] w-full"
+          >
+            {features.map((feature) => (
+              <div
                 key={feature}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3 p-3 rounded-[10px] bg-white/80 dark:bg-gray-950/80 border border-white/40 dark:border-gray-800/60 shadow-sm"
+                role="listitem"
+                className="flex items-center gap-2 p-2 mx-[5px] pr-4 rounded-full bg-white/80 dark:bg-gray-950/80 border border-[#ff070840] dark:border-[#ff0708] backdrop-blur-sm"
               >
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-sm text-slate-900 dark:text-slate-100">
+                <CheckCheck className="w-4 h-4 text-[#ff0708] flex-shrink-0" strokeWidth={1.5}/>
+                <span className="text-xs text-slate-900 dark:text-slate-100">
                   {feature}
                 </span>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </Marquee>
         </motion.div>
       </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 right-0 bottom-0 h-[1px] w-full z-10"
+        style={{
+          background: "linear-gradient(90deg, #ff070820 0%, #FF070880 50%, #ff070820 100%)"
+        }}
+      />
     </section>
   );
 }

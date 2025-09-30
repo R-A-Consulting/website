@@ -1,24 +1,8 @@
 "use client"
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Brain,
-  Code,
-  Smartphone,
-  Globe,
-  Zap,
-  Database,
-  Cloud,
-  Shield,
-  Bot,
-  Palette,
-  Rocket,
-  Settings,
-  Layers,
-  Video,
-  Handshake
-} from "lucide-react";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Handshake } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import ai from "@/assets/services/ai.png";
 import product from "@/assets/services/product.png";
@@ -30,37 +14,36 @@ import custom from "@/assets/services/custom.png";
 const services = [
   {
     img: ai,
-    title: "AI for Business",
-    description: "Assistants, chatbots, and smart tools that save time and improve decisions.",
+    title: "AI & Analytics",
+    description: "Smart chatbots and tools that help you make better decisions and save time.",
   },
   {
     img: product,
-    title: "Product Design",
-    description: "Product strategy, UX/UI, and prototypes that turn ideas into working products.",
+    title: "Product Design & UX",
+    description: "We turn your ideas into easy-to-use apps and websites your customers will love.",
   },
   {
     img: webapp,
-    title: "Web & App Development",
-    description: "Fast, secure websites and mobile apps from idea to launch.",
+    title: "Web & Mobile Development",
+    description: "Get fast, reliable websites and apps that work smoothly on any device.",
   },
   {
     img: cloud,
     title: "Cloud & DevOps",
-    description: "Reliable, scalable, and cost-efficient setup, monitoring, and management.",
+    description: "Simple and secure online solutions, with support whenever you need it.",
   },
   {
     img: automation,
-    title: "Automation & Integrations",
-    description: "Connect systems and automate routine tasks to cut manual work.",
+    title: "Process Automation",
+    description: "Let us automate your daily tasks so you can focus on growing your business.",
   },
   {
     img: custom,
-    title: "Custom Solutions",
-    description: "Tailor-made projects built around your goals, processes, and budget.",
-  }
+    title: "Custom IT Solutions",
+    description: "Software built just for you, fitting your needs and your budget.",
+  },
 ];
 
-// Animated text component for scroll-based word color animation
 function AnimatedText({ text, className }) {
   const containerRef = useRef(null);
   const [progress, setProgress] = useState(0);
@@ -70,41 +53,40 @@ function AnimatedText({ text, className }) {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // Responsive trigger: lower on small screens, higher on large screens
         const isMobile = window.innerWidth < 768;
-        const triggerOffset = isMobile ? 0.3 : 0.4; // 25% on mobile, 10% on desktop
-        const animationWindow = isMobile ? 0.8 : 0.4; // 50% window on mobile, 60% on desktop
+        const triggerOffset = isMobile ? 0.3 : 0.4;
+        const animationWindow = isMobile ? 0.8 : 0.4;
 
-        const progress = Math.max(0, Math.min(1,
-          1 - ((rect.top - windowHeight * triggerOffset) / (windowHeight * animationWindow))
-        ));
+        const progress = Math.max(
+          0,
+          Math.min(
+            1,
+            1 - (rect.top - windowHeight * triggerOffset) / (windowHeight * animationWindow)
+          )
+        );
         setProgress(progress);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Split text into words
-  const words = text.split(' ');
+  const words = text.split(" ");
   const totalWords = words.length;
 
-  // Calculate how many words should be red based on progress
-  const wordsToColor = Math.floor(progress * totalWords);
-
   const animatedWords = words.map((word, wordIndex) => {
-    const isRed = wordIndex < wordsToColor;
-    const shouldTransition = wordIndex === wordsToColor - 1 || wordIndex === wordsToColor;
-
+    let wordProgress = progress * totalWords - wordIndex;
+    let opacity = Math.max(0.03, Math.min(1, wordProgress));
     return (
       <motion.span
         key={wordIndex}
         className="inline-block mr-1"
         style={{
-          color: isRed ? '#1e1e1e' : '#ff070810',
-          transition: shouldTransition ? 'color 0.3s ease-out' : 'none'
+          color: "#1e1e1e",
+          opacity,
+          transition: "opacity 0.35s cubic-bezier(0.25,0.46,0.45,0.94), color 0.3s ease-out"
         }}
       >
         {word}
@@ -120,7 +102,7 @@ function AnimatedText({ text, className }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.10, 0.46, 0.45, 0.94]
       }}
     >
       {animatedWords}
@@ -131,8 +113,7 @@ function AnimatedText({ text, className }) {
 export default function Services() {
   return (
     <section className="py-20 px-4 bg-slate-50/50 w-full relative">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -152,10 +133,8 @@ export default function Services() {
             className="text-2xl md:text-4xl text-slate-900 max-w-5xl leading-[1.2] md:leading-[1.2] font-semibold"
           />
         </motion.div>
-
-        {/* Services grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-[12px] p-1.5 ">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.title}
               className="shadow-none"
@@ -166,8 +145,8 @@ export default function Services() {
                     {service.img && <Image src={service.img} alt={service.title} width={1000} height={1000} className="w-full h-full object-cover" />}
                   </div>
                   <div className="flex flex-col gap-1 py-2">
-                  <CardTitle className="text-xl md:text-2xl font-semibold px-2">{service.title}</CardTitle>
-                    <CardDescription className="text-muted-foreground leading-relaxed px-2">
+                    <CardTitle className="text-xl md:text-[20px] font-semibold px-2">{service.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed px-2 text-xs md:text-sm">
                       {service.description}
                     </CardDescription>
                   </div>
@@ -176,7 +155,6 @@ export default function Services() {
             </div>
           ))}
         </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -185,7 +163,7 @@ export default function Services() {
             delay: 0.6,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
-          className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-10 bg-white md:w-max w-full rounded-[25px] p-1 shadow-none border border-red-500/20 group mx-auto"
+          className="flex flex-col sm:flex-row gap-4 gap-y-2 justify-start items-center mt-4 lg:mt-10 bg-white md:w-max w-full rounded-[25px] p-1 shadow-none border border-red-500/20 group mx-auto md:scale-110"
         >
           <span className="text-sm md:text-base text-gray-600 flex items-center gap-2 px-4 md:pr-0 pb-2 md:pb-0 order-2 md:order-1">
             <Handshake className="w-4 h-4" />
@@ -201,7 +179,6 @@ export default function Services() {
           </a>
         </motion.div>
       </div>
-      {/* Gradient border at the bottom */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-0 right-0 bottom-0 h-[1px] w-full"
