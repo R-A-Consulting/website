@@ -167,7 +167,7 @@ export default function Process() {
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <a
-                  href="https://calendly.com//30-min"
+                  href="https://calendly.com/rishabh-steeplogic/steeplogic-30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300"
