@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/company/steep.logic", label: "LinkedIn" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/company/steeplogic", label: "LinkedIn" },
     { icon: <Twitter className="w-5 h-5" />, href: "https://x.com/steeplogic", label: "Twitter" },
     { icon: <Instagram className="w-5 h-5" />, href: "https://instagram.com/steep.logic", label: "Instagram" }
   ];
