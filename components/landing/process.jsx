@@ -71,7 +71,7 @@ export default function Process() {
             Frequently Asked Questions
             <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
-          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl flex items-center justify-center gap-0">
             {headingWords.map((word, index) => (
               <motion.span
                 key={`${word}-${index}`}
@@ -144,25 +144,40 @@ export default function Process() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-10"
+            className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#ff070810] blur-3xl" />
               <div className="absolute -bottom-16 -left-20 h-72 w-72 rounded-full bg-white blur-3xl" />
             </div>
             <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#ff0708]">
-                Scrolled So Far, Still Confused - Let's Talk
+              <span className="inline-flex items-center gap-2 rounded-full py-1 text-[10px] md:text-xs font-semibold uppercase tracking-[0.1em] text-[#ff0708]">
+                Scrolled So Far, Still Confused?
               </span>
-              <h3 className="mt-3 text-2xl md:text-4xl font-semibold text-slate-900">
+              <h3 className="mt-3 text-xl md:text-4xl font-semibold text-slate-900">
                 Get a FREE 30 minute consultation call
               </h3>
-              <ul className="mt-4 text-sm md:text-base text-slate-600 list-disc list-inside space-y-2">
-                <li>Discuss your business goals and challenges</li>
-                <li>Get expert advice on tech, automation, and digital strategy</li>
-                <li>See examples of similar projects and results</li>
-                <li>Receive a clear roadmap and next steps</li>
-                <li>No obligation, no sales pitch—just honest guidance</li>
+              <ul className="mt-8 space-y-3">
+                <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span>Discuss your business goals and challenges</span>
+                </li>
+                <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span>Get expert advice on tech, automation, and digital strategy</span>
+                </li>
+                <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span>See examples of similar projects and results</span>
+                </li>
+                <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span>Receive a clear roadmap and next steps</span>
+                </li>
+                <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span>No obligation, no sales pitch—just honest guidance</span>
+                </li>
               </ul>
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
