@@ -1,9 +1,11 @@
 "use client"
 
+import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import ContactDialog from "@/components/contact-dialog";
 
 import famFresh from "@/assets/clients/fam-fresh.png";
 import leadClub from "@/assets/clients/lead-club.png";
@@ -36,6 +38,8 @@ const clientLogos = [
 ];
 
 export default function Clients() {
+  const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
+
   return (
     <section className="relative overflow-hidden bg-slate-50/10 py-20 px-4">
       {/* <div className="absolute inset-x-0 top-16 mx-auto h-72 max-w-5xl rounded-full bg-[#ff070810] blur-3xl" aria-hidden="true" />
@@ -112,15 +116,13 @@ export default function Clients() {
               </ul>
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a
-                  href="https://calendly.com//30-min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300"
+                <button
+                  onClick={() => setIsContactDialogOpen(true)}
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300 cursor-pointer"
                 >
                   Start Your MVP
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </button>
               </div>
             </div>
           </motion.article>
@@ -157,15 +159,13 @@ export default function Clients() {
               </ul>
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a
-                  href="https://calendly.com//30-min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#ff0708] transition-all duration-300 hover:bg-white/95"
+                <button
+                  onClick={() => setIsContactDialogOpen(true)}
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#ff0708] transition-all duration-300 hover:bg-white/95 cursor-pointer"
                 >
                   Explore Automation
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </button>
               </div>
             </div>
           </motion.article>
@@ -255,6 +255,11 @@ export default function Clients() {
           }
         }
       `}</style>
+
+      <ContactDialog
+        isOpen={isContactDialogOpen}
+        onClose={() => setIsContactDialogOpen(false)}
+      />
     </section>
   );
 }

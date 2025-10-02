@@ -51,7 +51,6 @@ const faqs = [
 ];
 
 export default function Process() {
-
   const headingWords = ["Need", "Some", "Clarity", "?"];
 
   return (

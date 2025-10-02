@@ -6,6 +6,7 @@ import HeroBackground from "@/components/ui/hero-background";
 import hero from "@/assets/hero.png";
 
 export default function Hero() {
+
   return (
     <section className="relative py-20 border-b border-red-200">
       <HeroBackground />
