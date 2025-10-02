@@ -1,94 +1,62 @@
 "use client"
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import {
-  MessageCircle,
-  Lightbulb,
-  Code,
-  Rocket,
-  ArrowRight,
-  CheckCircle,
-  Clock,
-  Users
+  ArrowRight
 } from "lucide-react";
+import Image from "next/image";
+import businessIcon from "@/assets/faq/business.png";
+import fastIcon from "@/assets/faq/fast.png";
+import resultsIcon from "@/assets/faq/results.png";
+import moneyIcon from "@/assets/faq/money.png";
+import ownerIcon from "@/assets/faq/owner.png";
+import legacyIcon from "@/assets/faq/legacy.png";
 
-const processSteps = [
+const faqs = [
   {
-    step: "01",
-    icon: MessageCircle,
-    title: "Discovery & Strategy",
-    description: "We dive deep into your business challenges, goals, and vision. Through collaborative workshops, we map out the optimal technical solution.",
-    duration: "1-2 weeks",
-    deliverables: [
-      "Technical requirements document",
-      "Project roadmap and timeline",
-      "Architecture recommendations",
-      "Cost estimates and options"
-    ]
+    question: "What kind of businesses do you work with?",
+    answer:
+      "We help startups and growing businesses in India and abroad launch, scale, and modernize successfully.",
+    icon: businessIcon
   },
   {
-    step: "02",
-    icon: Lightbulb,
-    title: "Design & Planning",
-    description: "We create detailed designs, wireframes, and technical specifications. Every decision is made with scalability and user experience in mind.",
-    duration: "1-2 weeks",
-    deliverables: [
-      "UI/UX designs and prototypes",
-      "Technical architecture plan",
-      "Database schema design",
-      "API specifications"
-    ]
+    question: "How fast can you build?",
+    answer:
+      "We deliver a working prototype in 4–6 weeks, with weekly updates and rapid feedback cycles.",
+    icon: fastIcon
   },
   {
-    step: "03",
-    icon: Code,
-    title: "Development & Iteration",
-    description: "Our agile development process means you see working software early and often. Weekly demos ensure we're building exactly what you need.",
-    duration: "4-8 weeks",
-    deliverables: [
-      "Weekly working prototypes",
-      "Regular progress updates",
-      "Code reviews and testing",
-      "Documentation updates"
-    ]
+    question: "What results can we expect?",
+    answer:
+      "Expect increased sales, reduced costs, and smoother operations through automation and digital transformation.",
+    icon: resultsIcon
   },
   {
-    step: "04",
-    icon: Rocket,
-    title: "Launch & Support",
-    description: "We handle deployment, monitoring, and provide ongoing support. Your success doesn't end at launch—we're here for the long term.",
-    duration: "Ongoing",
-    deliverables: [
-      "Production deployment",
-      "Performance optimization",
-      "User training and documentation",
-      "30-day post-launch support"
-    ]
-  }
-];
-
-const principles = [
-  {
-    icon: Clock,
-    title: "Transparent Communication",
-    description: "Daily updates, weekly demos, and direct access to your development team. No surprises, just results."
+    question: "How do you charge?",
+    answer:
+      "We offer clear, fixed pricing for MVPs and transparent, detailed estimates for custom projects.",
+    icon: moneyIcon
   },
   {
-    icon: Users,
-    title: "Collaborative Partnership",
-    description: "You're involved at every step. We value your domain expertise and work together to build the best solution."
+    question: "Who owns the work?",
+    answer:
+      "You own all code, documentation, and deliverables from day one, with complete handover provided.",
+    icon: ownerIcon
   },
   {
-    icon: CheckCircle,
-    title: "Quality First",
-    description: "Every line of code is tested, reviewed, and optimized. We build software that scales and lasts."
-  }
+    question: "Can you work with our existing systems?",
+    answer:
+      "Yes, we integrate new solutions with your current tools, ensuring seamless connectivity and minimal disruption.",
+    icon: legacyIcon
+  },
 ];
 
 export default function Process() {
+
+  const headingWords = ["Need", "Some", "Clarity", "?"];
+
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-muted/30 to-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="pt-10 px-4 bg-white">
+      <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -98,101 +66,38 @@ export default function Process() {
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-start md:text-center space-y-6 pb-10"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            How We
-            <span className="text-gradient block">Work</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Our proven process turns complex ideas into successful digital products. We focus on clarity, speed, and building solutions that grow with your business.
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/80 bg-clip-text text-transparent w-max mx-auto">
+            Frequently Asked Questions
+            <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
+          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl">
+            {headingWords.map((word, index) => (
+              <motion.span
+                key={`${word}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true }}
+                className="inline-block"
+              >
+                {index > 0 ? ` ${word}` : word}&nbsp;
+              </motion.span>
+            ))}
+          </h2>
         </motion.div>
 
-        {/* Process steps */}
-        <div className="space-y-8 mb-20">
-          {processSteps.map((step, index) => (
-            <motion.div
-              key={step.step}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-              whileHover={{
-                x: 4,
-                transition: { duration: 0.2, ease: "easeOut" }
-              }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <Card className="glass-card border-red-500/10 overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-500 to-red-600"></div>
-                <CardContent className="p-8">
-                  <div className="grid lg:grid-cols-3 gap-8 items-center">
-                    {/* Step number and icon */}
-                    <div className="text-center lg:text-left">
-                      <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 mb-4">
-                        <step.icon className="w-10 h-10 text-red-500" />
-                      </div>
-                      <div className="text-4xl font-bold text-muted-foreground mb-2">
-                        {step.step}
-                      </div>
-                      <div className="text-sm text-red-500 font-medium">
-                        {step.duration}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="lg:col-span-2">
-                      <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
-                        {step.description}
-                      </p>
-
-                      <div>
-                        <h4 className="font-semibold mb-3 text-red-500">Key Deliverables:</h4>
-                        <div className="grid sm:grid-cols-2 gap-2">
-                          {step.deliverables.map((deliverable, idx) => (
-                            <div key={idx} className="flex items-center gap-2">
-                              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                              <span className="text-sm text-muted-foreground">{deliverable}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Arrow between steps */}
-              {index < processSteps.length - 1 && (
-                <div className="hidden lg:block absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <ArrowRight className="w-8 h-8 text-red-500" />
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Principles */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-3xl font-bold text-center mb-12">Our Principles</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {principles.map((principle, index) => (
+        {/* FAQ items */}
+        <div className="space-y-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-15 md:gap-y-20 ">
+            {faqs.map((faq, index) => (
               <motion.div
-                key={principle.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
@@ -200,59 +105,132 @@ export default function Process() {
                   delay: index * 0.1,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                whileHover={{
-                  y: -6,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
                 viewport={{ once: true }}
+                className="space-y-3 flex items-start gap-3"
               >
-                <Card className="h-full glass-card border-red-500/10 text-center">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center mx-auto mb-4">
-                      <principle.icon className="w-8 h-8 text-red-500" />
-                    </div>
-                    <h4 className="text-xl font-semibold mb-3">{principle.title}</h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {principle.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                {/* Icon Row */}
+                <div className="flex">
+                  <Image
+                    src={faq.icon}
+                    alt={faq.question}
+                    width={80}
+                    height={80}
+                    className="flex-shrink-0 object-contain"
+                  />
+                </div>
+
+                {/* Question and Answer Column */}
+                <div className="flex flex-col gap-0 mt-0">
+                  <h3 className="text-md md:text-lg font-semibold text-gray-900">
+                    {faq.question}
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
+                    {faq.answer}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
-          className="text-center"
+          className="grid gap-4 rounded-[20px] bg-slate-50 p-2 shadow-none mt-15 md:mt-20 border border-slate-200 border-dashed"
         >
-          <div className="max-w-2xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Start Building?
-            </h3>
-            <p className="text-muted-foreground mb-8">
-              Every great project starts with a conversation. Let's discuss your vision and see how we can bring it to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-full font-semibold hover:bg-red-600 transition-colors">
-                <MessageCircle className="w-5 h-5" />
-                Schedule a Call
-              </div>
-              <div className="inline-flex items-center gap-2 px-6 py-3 border border-red-500/30 text-red-500 rounded-full font-semibold hover:bg-red-500/10 transition-colors">
-                View Project Timeline
-                <ArrowRight className="w-4 h-4" />
+          <motion.article
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-10"
+          >
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#ff070810] blur-3xl" />
+              <div className="absolute -bottom-16 -left-20 h-72 w-72 rounded-full bg-white blur-3xl" />
+            </div>
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#ff0708]">
+                Scrolled So Far, Still Confused - Let's Talk
+              </span>
+              <h3 className="mt-3 text-2xl md:text-4xl font-semibold text-slate-900">
+                Get a FREE 30 minute consultation call
+              </h3>
+              <ul className="mt-4 text-sm md:text-base text-slate-600 list-disc list-inside space-y-2">
+                <li>Discuss your business goals and challenges</li>
+                <li>Get expert advice on tech, automation, and digital strategy</li>
+                <li>See examples of similar projects and results</li>
+                <li>Receive a clear roadmap and next steps</li>
+                <li>No obligation, no sales pitch—just honest guidance</li>
+              </ul>
+
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://calendly.com//30-min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300"
+                >
+                  Schedule Call
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
-          </div>
+          </motion.article>
         </motion.div>
       </div>
+      <style jsx>{`
+        .blink-hover {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .blink-hover::before,
+        .blink-hover::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          border: 2px solid currentColor;
+          opacity: 0;
+          transform: scale(0.75);
+          will-change: transform, opacity;
+          pointer-events: none;
+        }
+
+        .blink-hover:hover::after {
+          animation: radar-pulse 0.9s ease-out infinite;
+        }
+
+        .blink-hover:hover::before {
+          animation: radar-pulse 0.9s ease-out infinite;
+          animation-delay: 0.35s;
+        }
+
+        @keyframes radar-pulse {
+          0% {
+            transform: scale(0.8);
+            opacity: 0.5;
+          }
+          55% {
+            transform: scale(1.25);
+            opacity: 0.2;
+          }
+          100% {
+            transform: scale(1.55);
+            opacity: 0;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .blink-hover:hover::after {
+            animation: none;
+            opacity: 0;
+          }
+        }
+      `}</style>
     </section>
   );
 }

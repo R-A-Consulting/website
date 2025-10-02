@@ -116,7 +116,7 @@ export default function Clients() {
                   href="https://calendly.com//30-min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-transform duration-300 hover:-translate-y-1"
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300"
                 >
                   Start Your MVP
                   <ArrowRight className="h-4 w-4" />
@@ -161,7 +161,7 @@ export default function Clients() {
                   href="https://calendly.com//30-min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#ff0708] transition-transform duration-300 hover:-translate-y-1 hover:bg-white/95"
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#ff0708] transition-all duration-300 hover:bg-white/95"
                 >
                   Explore Automation
                   <ArrowRight className="h-4 w-4" />
@@ -205,6 +205,56 @@ export default function Clients() {
           background: "linear-gradient(90deg, transparent 0%, rgba(255,7,8,0.4) 50%, transparent 100%)"
         }}
       />
+      <style jsx>{`
+        .blink-hover {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .blink-hover::before,
+        .blink-hover::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          border: 2px solid currentColor;
+          opacity: 0;
+          transform: scale(0.75);
+          will-change: transform, opacity;
+          pointer-events: none;
+        }
+
+        .blink-hover:hover::after {
+          animation: radar-pulse 0.9s ease-out infinite;
+        }
+
+        .blink-hover:hover::before {
+          animation: radar-pulse 0.9s ease-out infinite;
+          animation-delay: 0.35s;
+        }
+
+        @keyframes radar-pulse {
+          0% {
+            transform: scale(0.8);
+            opacity: 0.5;
+          }
+          55% {
+            transform: scale(1.25);
+            opacity: 0.2;
+          }
+          100% {
+            transform: scale(1.55);
+            opacity: 0;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .blink-hover:hover::after {
+            animation: none;
+            opacity: 0;
+          }
+        }
+      `}</style>
     </section>
   );
 }

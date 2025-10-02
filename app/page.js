@@ -4,7 +4,7 @@ import Services from "@/components/landing/services";
 import About from "@/components/landing/about";
 import Clients from "@/components/landing/clients";
 import Process from "@/components/landing/process";
-import CTA from "@/components/landing/cta";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <About />
         <Clients />
         <Process />
-        <CTA />
+        <Footer />
       </main>
     </div>
   );
