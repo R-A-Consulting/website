@@ -61,11 +61,13 @@ const features = [
 
 const headingWords = ["Engineering.", "Strategy.", "Delivery."];
 
+const primaryColor = "#ff0708";
+
 export default function About() {
   return (
-    <section className="bg-white w-full relative">
+    <section className="bg-white w-full relative" aria-labelledby="about-heading">
       <div className="max-w-6xl mx-auto space-y-16 border-x border-dashed border-red-500/20 pt-10">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -75,11 +77,11 @@ export default function About() {
           viewport={{ once: true }}
           className="text-start md:text-center space-y-6 border-b border-dashed border-red-500/20 pb-10"
         >
-          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/80 bg-clip-text text-transparent w-max mx-auto">
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent w-max mx-auto">
             what's steep logic all about
-            <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
+            <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" aria-hidden="true"></span>
           </p>
-          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl flex items-center justify-center gap-0">
+          <h2 id="about-heading" className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl flex items-center justify-center gap-0">
             {headingWords.map((word, index) => (
               <motion.span
                 key={`${word}-${index}`}
@@ -97,11 +99,11 @@ export default function About() {
               </motion.span>
             ))}
           </h2>
-        </motion.div>
+        </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-[12px] items-center justify-center md:pl-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-[12px] items-center justify-center md:pl-10" role="list" aria-label="Company benefits and features">
           {benefits.map((benefit, index) => (
-            <motion.div
+            <motion.article
               key={benefit.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -111,12 +113,13 @@ export default function About() {
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               viewport={{ once: true }}
+              role="listitem"
             >
               <Card className="h-full border-none shadow-none bg-none rounded-[12px] overflow-hidden transition-all duration-300 group p-10">
                 <CardHeader className="p-1 flex flex-col gap-4">
-                  <Image src={benefit.img} alt={benefit.title} width={150} height={150} className=" text-[#ff0708]" />
+                  <Image src={benefit.img} alt={`${benefit.title} illustration`} width={150} height={150} className="text-primary" />
                   <div className="flex flex-col gap-2">
-                    <CardTitle className="text-xl font-semibold text-slate-900">
+                    <CardTitle className="text-xl font-semibold text-slate-900" id={`benefit-${index}`}>
                       {benefit.title}
                     </CardTitle>
                     <CardDescription className="text-xs max-w-100 leading-relaxed text-muted-foreground">
@@ -125,11 +128,11 @@ export default function About() {
                   </div>
                 </CardHeader>
               </Card>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        <motion.div
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -138,38 +141,41 @@ export default function About() {
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
           viewport={{ once: true }}
-          className="rounded-none border-t border-dashed border-[#ff0708]/30 bg-gradient-to-r from-white via-[#ff070805] to-white dark:from-gray-950 dark:via-gray-950 dark:to-[#ff0708]/10 p-8 space-y-8 px-0 flex flex-col items-center justify-center gap-7 pb-10"
+          className="rounded-none border-t border-dashed border-primary/30 bg-gradient-to-r from-white via-primary/5 to-white dark:from-gray-950 dark:via-gray-950 dark:to-primary/10 p-8 space-y-8 px-0 flex flex-col items-center justify-center gap-7 pb-10"
+          aria-labelledby="features-heading"
         >
-          <h3 className="text-sm md:text-base font-tektur font-medium text-slate-900 w-max mx-auto m-0">
+          <h3 id="features-heading" className="text-sm md:text-base font-tektur font-medium text-slate-900 w-max mx-auto m-0">
             everything's included, without any drama
-            <span className="h-[3px] w-[9px] bg-slate-900 inline-block ml-1" ></span>
+            <span className="h-[3px] w-[9px] bg-slate-900 inline-block ml-1" aria-hidden="true"></span>
           </h3>
 
           <Marquee
             speed={70}
             gradient={true}
             className="gap-[5px] w-full"
+            role="list"
+            aria-label="Included features and benefits"
           >
             {features.map((feature) => (
               <div
                 key={feature}
                 role="listitem"
-                className="flex items-center gap-2 p-2 mx-[5px] pr-4 rounded-full bg-white/80 dark:bg-gray-950/80 border border-[#ff070840] dark:border-[#ff0708] backdrop-blur-sm"
+                className="flex items-center gap-2 p-2 mx-[5px] pr-4 rounded-full bg-white/80 dark:bg-gray-950/80 border border-primary/40 dark:border-primary backdrop-blur-sm"
               >
-                <CheckCheck className="w-4 h-4 text-[#ff0708] flex-shrink-0" strokeWidth={1.5}/>
+                <CheckCheck className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={1.5} aria-hidden="true"/>
                 <span className="text-xs text-slate-900 dark:text-slate-100">
                   {feature}
                 </span>
               </div>
             ))}
           </Marquee>
-        </motion.div>
+        </motion.section>
       </div>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-0 right-0 bottom-0 h-[1px] w-full z-10"
         style={{
-          background: "linear-gradient(90deg, #ff070820 0%, #FF070880 50%, #ff070820 100%)"
+          background: `linear-gradient(90deg, ${primaryColor}20 0%, ${primaryColor}80 50%, ${primaryColor}20 100%)`
         }}
       />
     </section>

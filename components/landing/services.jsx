@@ -11,6 +11,8 @@ import cloud from "@/assets/services/cloud.png";
 import automation from "@/assets/services/automation.png";
 import custom from "@/assets/services/custom.png";
 
+const primaryColor = "#ff0708";
+
 const services = [
   {
     img: ai,
@@ -113,9 +115,9 @@ function AnimatedText({ text, className }) {
 export default function Services() {
 
   return (
-    <section className="py-20 px-4 bg-slate-50/50 w-full relative">
+    <section className="py-20 px-4 bg-slate-50/50 w-full relative" aria-labelledby="services-heading">
       <div className="max-w-6xl mx-auto">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -125,35 +127,42 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-start mb-10"
         >
-          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/10 bg-clip-text text-transparent">
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-primary to-primary/10 bg-clip-text text-transparent">
             what we do for your business
-            <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
+            <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" aria-hidden="true"></span>
           </p>
-          <AnimatedText
-            text="We design and build reliable websites, apps, automations, and custom solutions to save you time and boost results."
+          <h2
+            id="services-heading"
             className="text-2xl md:text-4xl text-slate-900 max-w-5xl leading-[1.2] md:leading-[1.2] font-semibold"
-          />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-[12px] p-1.5 ">
-          {services.map((service) => (
-            <div
+          >
+            <AnimatedText
+              text="We design and build reliable websites, apps, automations, and custom solutions to save you time and boost results."
+            />
+          </h2>
+        </motion.header>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-[12px] p-1.5" role="list" aria-label="Our services">
+          {services.map((service, index) => (
+            <article
               key={service.title}
               className="shadow-none"
+              role="listitem"
             >
               <Card className="h-full border border-[#1E1E1E]/10 shadow-none group gap-2 bg-white rounded-[12px] p-2 overflow-hidden">
                 <CardHeader className="p-0">
                   <div className="w-full aspect-2/1 bg-slate-100/50 rounded-[6px] overflow-hidden">
-                    {service.img && <Image src={service.img} alt={service.title} width={1000} height={1000} className="w-full h-full object-cover" />}
+                    {service.img && <Image src={service.img} alt={`${service.title} service illustration`} width={1000} height={1000} className="w-full h-full object-cover" />}
                   </div>
                   <div className="flex flex-col gap-1 py-2">
-                    <CardTitle className="text-xl md:text-[20px] font-semibold px-2">{service.title}</CardTitle>
+                    <CardTitle className="text-xl md:text-[20px] font-semibold px-2" id={`service-${index}`}>
+                      {service.title}
+                    </CardTitle>
                     <CardDescription className="text-muted-foreground leading-relaxed px-2 text-xs md:text-sm">
                       {service.description}
                     </CardDescription>
                   </div>
                 </CardHeader>
               </Card>
-            </div>
+            </article>
           ))}
         </div>
         <motion.div
@@ -174,7 +183,7 @@ export default function Services() {
             href="https://calendly.com/rishabh-steeplogic/steeplogic-30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 px-3 bg-[#ff0708] hover:bg-gradient-to-r from-[#ff0708] to-[#ff4757] order-1 md:order-2 text-white text-sm rounded-t-[23px] sm:rounded-b-[23px] font-medium transition-all flex items-center justify-center gap-2 w-full md:w-max hover:scale-110 hover:shadow-xl hover:rotate-2 group-hover:rotate-2 group-hover:shadow-xl group-hover:scale-110"
+            className="p-3 px-3 bg-primary hover:bg-gradient-to-r from-primary to-red-600 order-1 md:order-2 text-white text-sm rounded-t-[23px] sm:rounded-b-[23px] font-medium transition-all flex items-center justify-center gap-2 w-full md:w-max hover:scale-110 hover:shadow-xl hover:rotate-2 group-hover:rotate-2 group-hover:shadow-xl group-hover:scale-110"
           >
             Schedule Call
           </a>
@@ -184,7 +193,7 @@ export default function Services() {
         aria-hidden="true"
         className="pointer-events-none absolute left-0 right-0 bottom-0 h-[1px] w-full"
         style={{
-          background: "linear-gradient(90deg, #ff070820 0%, #FF070880 50%, #ff070820 100%)"
+          background: `linear-gradient(90deg, ${primaryColor}20 0%, ${primaryColor}80 50%, ${primaryColor}20 100%)`
         }}
       />
     </section>

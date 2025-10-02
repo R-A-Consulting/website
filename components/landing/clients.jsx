@@ -37,12 +37,14 @@ const clientLogos = [
   { name: "Tracer AI", src: tracerAi }
 ];
 
+const primaryColor = "#ff0708";
+
 export default function Clients() {
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
 
   return (
     <section className="relative overflow-hidden bg-slate-50/10 py-20 px-4">
-      {/* <div className="absolute inset-x-0 top-16 mx-auto h-72 max-w-5xl rounded-full bg-[#ff070810] blur-3xl" aria-hidden="true" />
+      {/* <div className="absolute inset-x-0 top-16 mx-auto h-72 max-w-5xl rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 mx-auto h-64 max-w-4xl rounded-full bg-white blur-3xl" aria-hidden="true" /> */}
 
       <div className="relative mx-auto max-w-6xl">
@@ -53,7 +55,7 @@ export default function Clients() {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/80 bg-clip-text text-transparent w-max mx-auto">
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent w-max mx-auto">
             tailored programs
             <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
@@ -92,11 +94,11 @@ export default function Clients() {
             className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-slate-50 p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#ff070810] blur-3xl" />
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
               <div className="absolute -bottom-16 -left-20 h-72 w-72 rounded-full bg-white blur-3xl" />
             </div>
             <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#ff0708]">
+              <span className="inline-flex items-center gap-2 rounded-full py-1 text-xs font-semibold uppercase tracking-[0.1em] text-primary">
                 Startups
               </span>
               <h3 className="mt-3 text-xl font-semibold text-slate-900 md:text-4xl">
@@ -109,7 +111,7 @@ export default function Clients() {
               <ul className="mt-8 space-y-3">
                 {startupHighlights.map((highlight) => (
                   <li key={highlight} className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
-                    <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                    <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -118,7 +120,7 @@ export default function Clients() {
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => setIsContactDialogOpen(true)}
-                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300 cursor-pointer"
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300 cursor-pointer"
                 >
                   Start Your MVP
                   <ArrowRight className="h-4 w-4" />
@@ -132,7 +134,7 @@ export default function Clients() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[20px] border border-white bg-[#ff0708ee] p-5 md:p-10"
+            className="relative overflow-hidden rounded-[20px] border border-white bg-primary/ee p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0 opacity-70">
               <div className="absolute -top-20 -left-24 h-72 w-72 rounded-full bg-[#ffffff]/30 blur-3xl" />
@@ -161,7 +163,7 @@ export default function Clients() {
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => setIsContactDialogOpen(true)}
-                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#ff0708] transition-all duration-300 hover:bg-white/95 cursor-pointer"
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:bg-white/95 cursor-pointer"
                 >
                   Explore Automation
                   <ArrowRight className="h-4 w-4" />

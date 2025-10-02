@@ -172,11 +172,11 @@ const ContactDialog = ({ isOpen, onClose }) => {
 
               <div className="space-y-3">
                 <div className="text-xs text-gray-500">
-                  Auto-closing in <span className="font-medium text-[#ff0708]">10 seconds</span>
+                  Auto-closing in <span className="font-medium text-primary">10 seconds</span>
                 </div>
                 <button
                   onClick={handleSuccessClose}
-                  className="w-full bg-[#ff0708] hover:bg-[#e00607] text-white py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-primary hover:bg-red-700 text-white py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
                 >
                   Close Now
                 </button>
@@ -196,8 +196,8 @@ const ContactDialog = ({ isOpen, onClose }) => {
                     onClick={() => setContactMethod('email')}
                     className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors duration-200 flex items-center gap-2 ${
                       contactMethod === 'email'
-                        ? 'bg-[#ff0708] text-white border-[#ff0708]'
-                        : 'bg-white text-gray-700 border-gray-200 hover:border-[#ff0708] hover:bg-red-50'
+                        ? 'bg-primary text-white border-primary'
+                        : 'bg-white text-gray-700 border-gray-200 hover:border-primary hover:bg-red-50'
                     }`}
                   >
                     <Mail className="w-4 h-4" />
@@ -208,8 +208,8 @@ const ContactDialog = ({ isOpen, onClose }) => {
                     onClick={() => setContactMethod('phone')}
                     className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors duration-200 flex items-center gap-2 ${
                       contactMethod === 'phone'
-                        ? 'bg-[#ff0708] text-white border-[#ff0708]'
-                        : 'bg-white text-gray-700 border-gray-200 hover:border-[#ff0708] hover:bg-red-50'
+                        ? 'bg-primary text-white border-primary'
+                        : 'bg-white text-gray-700 border-gray-200 hover:border-primary hover:bg-red-50'
                     }`}
                   >
                     <Phone className="w-4 h-4" />
@@ -227,7 +227,7 @@ const ContactDialog = ({ isOpen, onClose }) => {
                   required
                   value={contactMethod === 'email' ? (formData.email || '') : formData.phone}
                   onChange={(e) => handleInputChange(contactMethod === 'email' ? 'email' : 'phone', e.target.value)}
-                  className={`w-full p-4 py-3 text-lg font-medium bg-slate-100 border-0 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#ff0708] focus:outline-none transition-all duration-200 ${
+                  className={`w-full p-4 py-3 text-lg font-medium bg-slate-100 border-0 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-200 ${
                     contactMethod === 'email' ? 'placeholder:text-gray-400' : 'placeholder:text-gray-400'
                   }`}
                   placeholder={contactMethod === 'email' ? 'someone@example.com' : '+91 98765 43210'}
@@ -237,7 +237,7 @@ const ContactDialog = ({ isOpen, onClose }) => {
                     letterSpacing: contactMethod === 'email' ? '0.5px' : '1px'
                   }}
                 />
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff0708]/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
               </div>
 
               {/* Service Selection - Tags */}
@@ -253,8 +253,8 @@ const ContactDialog = ({ isOpen, onClose }) => {
                       onClick={() => handleServiceSelect(service)}
                       className={`px-3 py-2 text-sm font-medium rounded-full border transition-colors duration-200 ${
                         formData.service === service
-                          ? 'bg-[#ff0708] text-white border-[#ff0708]'
-                          : 'bg-white text-gray-600 border-gray-200 hover:border-[#ff0708] hover:bg-red-50'
+                          ? 'bg-primary text-white border-primary'
+                          : 'bg-white text-gray-600 border-gray-200 hover:border-primary hover:bg-red-50'
                       }`}
                     >
                       {service}
@@ -272,7 +272,7 @@ const ContactDialog = ({ isOpen, onClose }) => {
                   rows={3}
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-[#ff0708] focus:border-transparent resize-none"
+                  className="w-full px-3 py-2 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                   placeholder="Tell us more about your project..."
                 />
               </div>
@@ -281,7 +281,7 @@ const ContactDialog = ({ isOpen, onClose }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#ff0708] hover:bg-[#e00607] disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-primary hover:bg-red-700 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

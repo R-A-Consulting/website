@@ -1,19 +1,71 @@
+# Robots.txt for Steep Logic
+# Website: https://steeplogic.com
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap location
 Sitemap: https://steeplogic.com/sitemap.xml
 
-# Crawl delay (optional, in seconds)
+# Crawl delay for all bots (optional, in seconds)
 Crawl-delay: 1
 
-# Block access to admin or sensitive areas (if they exist)
+# Block access to sensitive and development areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*?*
+Disallow: /tmp/
+Disallow: /private/
 
-# Allow access to assets
+# Allow access to essential assets
 Allow: /assets/
 Allow: /favicon.ico
 Allow: /manifest.json
+Allow: /browserconfig.xml
+Allow: /icon-*.png
+Allow: /apple-touch-icon.png
+Allow: /steeplogic.ico
+Allow: /og-image.png
+
+# Specific bot directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 0.5
+
+# International search engines
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Sogou
+Allow: /
+Crawl-delay: 0.5
+
+# Block unwanted bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

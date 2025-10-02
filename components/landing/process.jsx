@@ -50,6 +50,8 @@ const faqs = [
   },
 ];
 
+const primaryColor = "#ff0708";
+
 export default function Process() {
   const headingWords = ["Need", "Some", "Clarity", "?"];
 
@@ -67,7 +69,7 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-start md:text-center space-y-6 pb-10"
         >
-          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-[#ff0708] to-[#ff0708]/80 bg-clip-text text-transparent w-max mx-auto">
+          <p className="text-xs md:text-[18px] font-tektur font-medium mb-6 text-clip bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent w-max mx-auto">
             Frequently Asked Questions
             <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
@@ -147,11 +149,11 @@ export default function Process() {
             className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#ff070810] blur-3xl" />
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
               <div className="absolute -bottom-16 -left-20 h-72 w-72 rounded-full bg-white blur-3xl" />
             </div>
             <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full py-1 text-[10px] md:text-xs font-semibold uppercase tracking-[0.1em] text-[#ff0708]">
+              <span className="inline-flex items-center gap-2 rounded-full py-1 text-[10px] md:text-xs font-semibold uppercase tracking-[0.1em] text-primary">
                 Scrolled So Far, Still Confused?
               </span>
               <h3 className="mt-3 text-xl md:text-4xl font-semibold text-slate-900">
@@ -159,23 +161,23 @@ export default function Process() {
               </h3>
               <ul className="mt-8 space-y-3">
                 <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
-                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                   <span>Discuss your business goals and challenges</span>
                 </li>
                 <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
-                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                   <span>Get expert advice on tech, automation, and digital strategy</span>
                 </li>
                 <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
-                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                   <span>See examples of similar projects and results</span>
                 </li>
                 <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
-                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                   <span>Receive a clear roadmap and next steps</span>
                 </li>
                 <li className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
-                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                   <span>No obligation, no sales pitch—just honest guidance</span>
                 </li>
               </ul>
@@ -185,7 +187,7 @@ export default function Process() {
                   href="https://calendly.com/rishabh-steeplogic/steeplogic-30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-[#ff0708] px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300"
+                  className="blink-hover inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-slate-50 transition-all duration-300"
                 >
                   Schedule Call
                   <ArrowRight className="h-4 w-4" />

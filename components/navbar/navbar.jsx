@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="flex items-center md:space-x-2 z-[51] px-1">
             <button
               onClick={() => setIsContactDialogOpen(true)}
-              className="py-3 px-3 bg-[#ff0708] text-white text-sm rounded-full font-medium transition-all flex items-center gap-2 hover:scale-105"
+              className="py-3 px-3 bg-primary text-white text-sm rounded-full font-medium transition-all flex items-center gap-2 hover:scale-105"
             >
               Contact Us
               <ArrowUpRight className="w-4 h-4" />
