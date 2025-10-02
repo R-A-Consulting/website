@@ -89,7 +89,7 @@ export default function Clients() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-slate-50 p-10"
+            className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-slate-50 p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#ff070810] blur-3xl" />
@@ -99,17 +99,17 @@ export default function Clients() {
               <span className="inline-flex items-center gap-2 rounded-full py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#ff0708]">
                 Startups
               </span>
-              <h3 className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl">
+              <h3 className="mt-3 text-xl font-semibold text-slate-900 md:text-4xl">
                 Launch Fast. Scale Smart.
               </h3>
-              <p className="mt-4 text-sm md:text-base text-slate-600">
+              <p className="mt-4 text-xs md:text-base text-slate-600">
                 Move from concept to a scalable, investor-ready MVP in weeks with a product team tuned for speed, clarity, and measurable results.
               </p>
 
               <ul className="mt-8 space-y-3">
                 {startupHighlights.map((highlight) => (
-                  <li key={highlight} className="flex items-start gap-3 text-sm text-slate-700 md:text-base">
-                    <span className="mt-[6px] inline-flex h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
+                  <li key={highlight} className="flex items-start gap-3 text-xs text-slate-700 md:text-base">
+                    <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff0708]" />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -132,7 +132,7 @@ export default function Clients() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[20px] border border-white bg-[#ff0708ee] p-10"
+            className="relative overflow-hidden rounded-[20px] border border-white bg-[#ff0708ee] p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0 opacity-70">
               <div className="absolute -top-20 -left-24 h-72 w-72 rounded-full bg-[#ffffff]/30 blur-3xl" />
@@ -142,17 +142,17 @@ export default function Clients() {
               <span className="inline-flex items-center gap-2 rounded-full py-1 text-xs font-semibold uppercase tracking-[0.1em]">
                 Growing Businesses
               </span>
-              <h3 className="mt-3 text-3xl font-semibold md:text-4xl">
+              <h3 className="mt-3 text-xl font-semibold md:text-4xl">
                 Digitize. Automate. Scale.
               </h3>
-              <p className="mt-3 text-sm md:text-base text-slate-200">
+              <p className="mt-3 text-xs md:text-base text-slate-200">
                 Replace manual workflows with integrated, secure platforms engineered for performance, compliance, and visibility across your organization.
               </p>
 
               <ul className="mt-8 space-y-3">
                 {growthHighlights.map((highlight) => (
-                  <li key={highlight} className="flex items-start gap-3 text-sm text-white md:text-base">
-                    <span className="mt-[6px] inline-flex h-2.5 w-2.5 flex-shrink-0 rounded-full bg-white" />
+                  <li key={highlight} className="flex items-start gap-3 text-xs text-white md:text-base">
+                    <span className="mt-[6px] inline-flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" />
                     <span>{highlight}</span>
                   </li>
                 ))}

@@ -79,7 +79,7 @@ export default function About() {
             what's steep logic all about
             <span className="h-[3px] w-[9px] bg-red-500 inline-block ml-1" ></span>
           </p>
-          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl">
+          <h2 className="text-2xl md:text-4xl leading-[1.1] font-semibold text-slate-900 mx-auto max-w-5xl flex items-center justify-center gap-0">
             {headingWords.map((word, index) => (
               <motion.span
                 key={`${word}-${index}`}
