@@ -134,7 +134,7 @@ export default function Clients() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[20px] border border-white bg-primary/ee p-5 md:p-10"
+            className="relative overflow-hidden rounded-[20px] border border-white bg-primary p-5 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0 opacity-70">
               <div className="absolute -top-20 -left-24 h-72 w-72 rounded-full bg-[#ffffff]/30 blur-3xl" />
