@@ -11,7 +11,9 @@ export default function StructuredData({ type = 'website', data = {} }) {
       alternateName: 'SteepLogic',
       url: baseUrl,
       logo: `${baseUrl}/steeplogic.ico`,
-      description: 'We build tools and apps that help your business grow. From AI solutions to custom software development, we turn your ideas into working products that deliver value.',
+      // Updated tagline and expanded AI focus
+      description:
+        'We empower businesses with AI agents and modern software, driving smarter, faster growth. From AI automation and analytics to robust web, mobile, and cloud platforms, we design and ship the tools that streamline operations, accelerate growth, and help your business win.',
       foundingDate: '2025',
       contactPoint: {
         '@type': 'ContactPoint',
@@ -47,12 +49,24 @@ export default function StructuredData({ type = 'website', data = {} }) {
         },
       ],
       serviceType: [
-        'AI & Analytics',
+        'AI Agents & Automation',
+        'AI-powered Chatbots',
+        'AI Analytics & Insights',
+        'GenAI Solutions',
+        'Custom LLM Integrations',
+        'AI for Business Process Automation',
+        'AI for Customer Support',
+        'AI for Sales & Marketing',
         'Product Design & UX',
-        'Web & Mobile Development',
+        'Web Application Development',
+        'Mobile App Development',
         'Cloud & DevOps',
-        'Process Automation',
         'Custom IT Solutions',
+        'Process Automation',
+        'Data Engineering & ML Ops',
+        'AI Integration for Local US Businesses',
+        'AI Integration for Local India Businesses',
+        'Global AI Solutions'
       ],
       offers: {
         '@type': 'Offer',
@@ -69,7 +83,17 @@ export default function StructuredData({ type = 'website', data = {} }) {
         name: 'Steep Logic',
         url: baseUrl,
       },
-      serviceType: 'Software Development',
+      serviceType: [
+        'AI Agents & Automation',
+        'AI Analytics',
+        'Custom LLM Integration',
+        'Web & Mobile Development',
+        'Cloud Solutions',
+        'Process Automation',
+        'AI for Local US',
+        'AI for Local India',
+        'Global AI Solutions'
+      ],
       areaServed: [
         {
           '@type': 'Country',

@@ -47,7 +47,7 @@ export default function Hero() {
               }}
               className="text-2xl md:text-4xl font-semibold text-gray-900 leading-tight"
             >
-              We help businesses across India, US, and globally use AI and modern software to grow faster & smarter.
+              We empower businesses with AI agents and modern software, driving smarter, faster growth.
             </motion.h1>
 
             <motion.p

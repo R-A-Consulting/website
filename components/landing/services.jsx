@@ -16,8 +16,8 @@ const primaryColor = "#ff0708";
 const services = [
   {
     img: ai,
-    title: "AI & Analytics",
-    description: "Smart chatbots and tools that help you make better decisions and save time.",
+    title: "AI Agents",
+    description: "AI agents, smart chatbots, and analytics tools that automate tasks, boost productivity, and help you make better decisions.",
   },
   {
     img: product,
